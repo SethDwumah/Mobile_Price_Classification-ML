@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Mobile Price ML</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="login text-center">
+        <h1 class="mb-4">Mobile Price Classification</h1>
+        <form action="{{ url_for('predict')}}" method="post">
+            <input class="mt-4" for="ram" placeholder="RAM(mb)"  name="ram" required>
+            <br>
+            <input class="mt-4"  placeholder="Battery Capacity(mAh)" for="battery_power"  name="battery_power" required>
+            <br>
+            <input class="mt-4" placeholder="PX -Width"  name="px_width" for="px_width" required>
+            <br>
+            <input class="mt-4" placeholder="PX -Height"  name="px_height" for="px_height" required>
+            <br>
+            <input class="mt-4" placeholder="Internal Memory" name="internal_memory" for ="internal_memory" required>
+            <br>
+
+            <button class="mt-4" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        
+
+    </div>
+    <script src="./jquery-3.6.1.slim.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
+</body>
+{%if prediction ==0%}
+<h1>The Price of Mobile is Low</h1>
+{%elif prediction ==1%}
+<h1>The Price of Mobile is Normal</h1>
+{%elif prediction ==2%}
+<h1>The Price of Mobile is High</h1>
+{% elif prediction==3 %}
+<h1>The Mobile is Expensive</h1>
+{%else%}
+<h1></h1>
+{% endif %}
+
+</html>
