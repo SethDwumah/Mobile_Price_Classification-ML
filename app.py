@@ -14,7 +14,7 @@ model = pickle.load(open("mobile_price_model.pkl", "rb"))
 scaler = pickle.load(open('scaler.pkl','rb'))
 
 @flask_app.route("/")
-def Home():
+def index():
     return render_template("index.html")
 
 @flask_app.route("/predict", methods = ["POST"])
